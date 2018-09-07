@@ -2,9 +2,8 @@ import request from 'superagent'
 
 // const companiesUrl = '/api/v1/companies'
 
-// export function getCompanies (data) {
-//   return request.get(companiesUrl)
-//     .query({data})
+// export function getBooks () {
+//   return request.get(`/api/v1/reddit/`)
 // }
 
 export function getBook (id) {
