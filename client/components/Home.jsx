@@ -14,9 +14,9 @@ class Home extends React.Component {
   //   this.props.dispatch(getBooks())
   // }
 
-  path (path) {
-    this.props.history.push(path)
-  }
+  // path (path) {
+  //   this.props.history.push(path)
+  // }
 
   render () {
     return (

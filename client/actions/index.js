@@ -33,8 +33,8 @@ export const addBook = (book) => {
 export const updateStatus = (book) => {
   return (dispatch) => {
     request.put(`/api/v1/reddit`)
-      .send({book})
-      .then(res => {
+      .send(book)
+      .then(() => {
         dispatch(getBooks())
       })
       .catch(err => {

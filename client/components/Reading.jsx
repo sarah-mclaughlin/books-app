@@ -1,12 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {updateStatus} from '../apiClient'
+
+import {getBooks} from '../actions'
+
 // import Book from './Book'
 
 class Reading extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  // }
+  constructor (props) {
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (id) {
+    const book = {
+      id: id,
+      status: 'read'
+    }
+    updateStatus(book)
+      .then(() => {
+        this.props.dispatch(getBooks())
+      })
+  }
 
   render () {
     return (
@@ -16,7 +33,7 @@ class Reading extends React.Component {
           {this.props.reading.map(book => {
             return <div key={book.id}>
               <li>{book.title}</li>
-              <button>I have read</button>
+              <button onClick={() => this.handleClick(book.id)} >I have read</button>
             </div>
           })}
         </ul>

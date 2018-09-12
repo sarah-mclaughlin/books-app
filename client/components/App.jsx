@@ -33,19 +33,12 @@ class App extends React.Component {
           <Route path='/' render={() => {
             return <Home books={this.props.books} />
           }}/>
-          <Route exact path='/toread' render={() => {
-            return <ToRead books={this.props.toRead} />
-          }}/>
-          <Route exact path='/reading' render={() => {
-            return <Reading books={this.props.reading} />
-          }}/>
-          <Route exact path='/read' render={() => {
-            return <Read books={this.props.read} />
-          }}/>
+          <Route path='/toread' component={ToRead}/>
+          <Route path='/reading' component={Reading}/>
+          <Route path='/read' component={Read}/>
           {/* <Route exact path='/book/:id' component={Book} />
             <Route path='/' component={AddBook} /> */}
         </div>
-  
         {/* <div className='app'>
             <ErrorMessage />
             <LoadSubreddit />
@@ -59,16 +52,16 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.books,
-    toRead: state.books.filter(book => {
-      return book.status === 'toread'
-    }),
-    reading: state.books.filter(book => {
-      return book.status === 'reading'
-    }),
-    read: state.books.filter(book => {
-      return book.status === 'read'
-    })
+    books: state.books
+    // toRead: state.books.filter(book => {
+    //   return book.status === 'toread'
+    // }),
+    // reading: state.books.filter(book => {
+    //   return book.status === 'reading'
+    // }),
+    // read: state.books.filter(book => {
+    //   return book.status === 'read'
+    // })
   }
 }
 
